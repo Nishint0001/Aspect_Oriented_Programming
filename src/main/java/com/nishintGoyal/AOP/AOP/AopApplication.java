@@ -10,5 +10,4 @@ public class AopApplication
 	{
 		SpringApplication.run(AopApplication.class, args);
 	}
-
 }
