@@ -22,6 +22,7 @@ public class HelicopterServiceImplTest
     @Test
     void trackPackage()
     {
-
+        String str2=helicopterService.trackPackage(100L);
+        log.info(str2);
     }
 }

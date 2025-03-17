@@ -1,8 +1,10 @@
 package com.nishintGoyal.AOP.AOP.aspects;
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 @Aspect
@@ -23,4 +25,29 @@ public class LoggingAspect
     {
         log.info("Service Impl call detected in method: {}", joinPoint.getSignature());
     }
+
+    @Before( "@annotation(org.springframework.transaction.annotation.Transactional)")
+    public void beforeTransAnnotCall()
+    {
+        log.info("Calling this before transactional annot");
+    }
+
+    @Before( "@annotation( com.nishintGoyal.AOP.AOP.aspects.MyLogging )")
+    public void beforeLoggingAnnotCall()
+    {
+        log.info("Calling this before annot");
+    }
+
+    @After("ownPointCut()")
+    public void afterMyLoggingPointCut()
+    {
+        log.info("After My Logging Annotation calls");
+    }
+
+    @Pointcut("@annotation(com.nishintGoyal.AOP.AOP.aspects.MyLogging)")
+    public void ownPointCut()
+    {
+
+    }
+
 }
