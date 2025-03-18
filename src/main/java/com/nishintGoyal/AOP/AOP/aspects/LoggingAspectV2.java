@@ -29,6 +29,8 @@ public class LoggingAspectV2
         log.info("After returning returned value, {}", returnedObj);
     }
 
+    // AfterThrowing exception ke badh bhi chlega..
+
     @Pointcut(" execution ( * com.nishintGoyal.AOP.AOP.services.impl.*.* (..) ) ")
     public void allServiceMethodsPointCut()
     {

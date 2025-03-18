@@ -15,7 +15,7 @@ public class HelicopterServiceImplTest
     @Test
     void orderPackage()
     {
-        String str=helicopterService.orderPackage(22L);
+        String str=helicopterService.orderPackage(-8L);
         log.info(str);
     }
 
